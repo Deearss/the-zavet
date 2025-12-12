@@ -26,9 +26,6 @@ export default function MembersSection() {
             text-center
             mb-12 md:mb-16
           `}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
         >
           <h2
             className={`
@@ -56,10 +53,7 @@ export default function MembersSection() {
             className={`
               w-24
               h-1
-              bg-gradient-to-r
-              from-primary
-              via-tertiary
-              to-primary
+              bg-primary
               mx-auto
               rounded-full
             `}

@@ -30,7 +30,7 @@ const Avatar = () => {
             src="https://lottie.host/0dd9aa43-943b-43d2-8247-b6bcfab73ed2/lcIfotseiW.lottie"
             loop
             autoplay
-            style={{ width: "80px", height: "80px" }}
+            style={{ width: "40px", height: "40px" }}
           />
         </div>
       </div>

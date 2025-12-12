@@ -8,8 +8,10 @@ export default function Home() {
   return (
     <div
       className={`
-        min-h-screen 
+        h-screen
+        overflow-y-scroll 
         bg-main
+        snap-y snap-mandatory
       `}
     >
       {/* Hero Section - Welcome & Identity */}
@@ -19,13 +21,13 @@ export default function Home() {
       <SejarahSection />
 
       {/* Members Section - 22 Alumni Showcase */}
-      <MembersSection />
+      {/* <MembersSection /> */}
 
       {/* Memories Section - Core Stories (INTI) */}
-      <MemoriesSection />
+      {/* <MemoriesSection /> */}
 
       {/* Prayer Section - Spiritual Connection */}
-      <PrayerSection />
+      {/* <PrayerSection /> */}
 
       {/* Footer will be added later */}
     </div>

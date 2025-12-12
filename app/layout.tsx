@@ -84,9 +84,10 @@ export default function RootLayout({
         className={`
           ${harmattan.className} ${harmattan.variable} ${alexandria.variable} 
           antialiased bg-light text-text_primary text-[5rem] font-harmattan
+          overflow-hidden h-screen
         `}
       >
-        <main className="!text-[1em]">{children}</main>
+        <main className="!text-[1em] h-full overflow-auto">{children}</main>
       </body>
     </html>
   );

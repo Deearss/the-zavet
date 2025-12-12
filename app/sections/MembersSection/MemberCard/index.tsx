@@ -20,15 +20,13 @@ export default function MemberCard({ member }: MemberCardProps) {
         overflow-hidden
         border border-border_soft/30
         hover:shadow-xl
-        transition-shadow
         cursor-pointer
-        group
       `}
       // Framer Motion properties siap untuk animasi future
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
       whileHover={{ y: -5, scale: 1.05 }}
     >
       {/* Avatar Section dengan Lottie Animation */}

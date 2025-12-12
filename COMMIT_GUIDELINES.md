@@ -30,11 +30,69 @@ npm run start
 - **Mobile**: http://[YOUR_IP]:3000 ✅
 - **Verify**: Semua sections loading properly
 
+### **1.4 Stop All Servers** 🛑
+
+**CRITICAL**: Pastikan semua server sudah mati sebelum melanjutkan
+
+```bash
+# Stop development server (jika masih running)
+Ctrl+C
+
+# Stop production server (jika masih running)
+Ctrl+C
+
+# Verify no processes running on port 3000
+netstat -ano | findstr :3000
+```
+
+**Expected Result**: ✅ Tidak ada proses yang berjalan di port 3000
+
 ---
 
-## **Step 2: Log Consolidation** 📝
+## **Step 2: Git Status Analysis** 🔍
 
-### **2.1 Identify Same-Date Logs**
+### **2.1 Check All Changes**
+
+```bash
+git status
+```
+
+**Expected Result**: Detailed list of modified, deleted, and untracked files
+
+### **2.2 Analyze Change Summary**
+
+```bash
+git diff --name-status
+```
+
+**Format Output**:
+
+- `M` = Modified files
+- `D` = Deleted files
+- `A` = Added files
+- `??` = Untracked files
+
+### **2.3 Review Specific Changes**
+
+```bash
+git diff [filename]  # Review specific file changes
+git diff --cached    # Review staged changes
+```
+
+### **2.4 Document Change Analysis**
+
+**Record for Log & Commit Message**:
+
+- **Modified Files**: List dengan purpose/impact
+- **Deleted Files**: Reason for removal
+- **New Files**: Purpose dan functionality
+- **Moved Files**: From → To dengan explanation
+
+---
+
+## **Step 3: Log Consolidation** 📝
+
+### **3.1 Identify Same-Date Logs**
 
 Cari semua file log dengan tanggal yang sama:
 
@@ -42,7 +100,57 @@ Cari semua file log dengan tanggal yang sama:
 logs/LOG_TYPE_YYYY-MM-DD_HH-MM.md
 ```
 
-### **2.2 Merge Process**
+### **3.2 Create New Log If Needed**
+
+**JIKA TIDAK ADA LOG UNTUK HARI INI tapi ada git changes:**
+
+1. **Buat development log baru** dengan format: `DEVELOPMENT_LOG_YYYY-MM-DD_HH-MM.md`
+2. **Document semua changes** yang dilakukan hari ini
+3. **Include technical decisions** dan reasoning
+4. **Record files modified/created** dengan explanations
+5. **Note next steps** untuk development selanjutnya
+
+**Template untuk New Log:**
+
+```markdown
+# DEVELOPMENT_LOG_YYYY-MM-DD_HH-MM
+
+## Session Overview
+
+**Date**: [Full date]  
+**Time**: [Start time] - [End time]  
+**Focus**: [Main development area]  
+**Status**: [Completed/In Progress]
+
+## Changes Made
+
+### Files Modified
+
+- [filename]: [purpose/changes made]
+
+### Files Added
+
+- [filename]: [purpose/functionality]
+
+### Files Deleted
+
+- [filename]: [reason for removal]
+
+## Technical Decisions
+
+[Explain reasoning behind major changes]
+
+## Next Steps
+
+[What should be done next]
+
+---
+
+**Session Completed**: [Date & Time]  
+**Ready for Commit**: ✅
+```
+
+### **3.3 Merge Process (Jika ada multiple logs)**
 
 1. **Buat master log** dengan format: `COMPLETE_DEVELOPMENT_LOG_YYYY-MM-DD.md`
 2. **Gabungkan semua session** dalam chronological order
@@ -50,7 +158,7 @@ logs/LOG_TYPE_YYYY-MM-DD_HH-MM.md
 4. **Maintain timestamp** untuk setiap major change
 5. **Delete individual logs** setelah merge
 
-### **2.3 Master Log Structure**
+### **3.4 Master Log Structure (For merging)**
 
 ```markdown
 # COMPLETE_DEVELOPMENT_LOG_YYYY-MM-DD
@@ -80,9 +188,9 @@ logs/LOG_TYPE_YYYY-MM-DD_HH-MM.md
 
 ---
 
-## **Step 3: Commit Message Generation** 💬
+## **Step 4: Commit Message Generation** 💬
 
-### **3.1 Commit Message Format - Bilingual Standard**
+### **4.1 Commit Message Format - Bilingual Standard**
 
 **Format: English Section + Indonesian Section**
 
@@ -186,7 +294,7 @@ logs/LOG_TYPE_YYYY-MM-DD_HH-MM.md
 **Selanjutnya**: [Langkah selanjutnya dalam bahasa Indonesia]
 ```
 
-### **3.2 Bilingual Commit Example**
+### **4.2 Bilingual Commit Example**
 
 ```
 feat: Complete yearbook foundation with 5-section architecture and workflow standards
@@ -228,7 +336,7 @@ feat: Complete yearbook foundation with 5-section architecture and workflow stan
 **Selanjutnya**: Siap untuk implementasi detail HeroSection dengan animasi floating.
 ```
 
-### **3.3 Commit Types & Usage**
+### **4.3 Commit Types & Usage**
 
 - **feat**: New feature implementation
 - **fix**: Bug fixes and corrections
@@ -240,30 +348,30 @@ feat: Complete yearbook foundation with 5-section architecture and workflow stan
 
 ---
 
-## **Step 4: Final Checks** ✅
+## **Step 5: Final Checks** ✅
 
-### **4.1 File Organization**
+### **5.1 File Organization**
 
 - [ ] Logs consolidated for the date
 - [ ] No duplicate log files
 - [ ] All new components in proper folders
 - [ ] Import paths working correctly
 
-### **4.2 Code Quality**
+### **5.2 Code Quality**
 
 - [ ] TypeScript compilation successful
 - [ ] ESLint passes without errors
 - [ ] CSS variables used (no hardcoded colors)
 - [ ] className format consistent (backticks)
 
-### **4.3 Performance**
+### **5.3 Performance**
 
 - [ ] Build size reasonable
 - [ ] No memory leaks
 - [ ] Fast startup time
 - [ ] Mobile responsiveness verified
 
-### **4.4 Documentation**
+### **5.4 Documentation**
 
 - [ ] Changes documented in consolidated log
 - [ ] Technical decisions explained
@@ -271,13 +379,13 @@ feat: Complete yearbook foundation with 5-section architecture and workflow stan
 
 ---
 
-## **Step 5: Ready to Commit** 🎉
+## **Step 6: Ready to Commit** 🎉
 
-### **5.1 Copy Commit Message**
+### **6.1 Copy Commit Message**
 
 Gunakan commit message yang sudah generated (plain text, easy copy)
 
-### **5.2 Manual Git Commands**
+### **6.2 Manual Git Commands**
 
 ```bash
 git add .
@@ -285,7 +393,7 @@ git commit -m "[PASTE_COMMIT_MESSAGE_HERE]"
 git push origin main
 ```
 
-### **5.3 Deployment Ready**
+### **6.3 Deployment Ready**
 
 Project siap untuk deploy ke Vercel tanpa issues
 
@@ -321,8 +429,8 @@ Project siap untuk deploy ke Vercel tanpa issues
 
 ---
 
-**Last Updated**: September 2, 2025  
-**Version**: 1.0  
+**Last Updated**: September 9, 2025  
+**Version**: 1.1  
 **Purpose**: Ensure consistent, high-quality commits for Zavetoria Yearbook project
 
 ---

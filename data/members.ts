@@ -23,8 +23,8 @@ export const members: Member[] = [
     favoriteMemory: "Ketika berhasil membuat aplikasi pertama bersama tim",
   },
   {
-    id: "nabiel",
-    name: "Nabiel",
+    id: "nabil",
+    name: "Nabil",
     photo: "/api/placeholder/300/400",
     aspiration: "Arsitek",
     quote: "Membangun adalah seni menciptakan kehidupan",
